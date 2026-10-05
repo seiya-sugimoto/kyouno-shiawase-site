@@ -1,0 +1,15 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "kyouno-shiawase-site",
+  "compatibility_date": "2026-10-06",
+  // アクセスログを Cloudflare 側に持たない（App Privacy の申告と揃える。karada-log-site と同じ方針）
+  "observability": {
+    "enabled": false
+  },
+  "assets": {
+    "directory": "./public",
+    // App Store Connect とアプリ内リンクは .html 付きのURLを指す。
+    // 既定の auto-trailing-slash は /privacy.html を /privacy へ 307 で飛ばすため "none" にする
+    "html_handling": "none"
+  }
+}
